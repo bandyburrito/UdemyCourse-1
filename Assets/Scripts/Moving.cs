@@ -7,21 +7,13 @@ public class Moving : MonoBehaviour
 {
 
 
-    [SerializeField] float mouseSensitivityX = 100f;
-    [SerializeField] float mouseSensitivityY = 100f;
-
-
     [Header("Movement Settings")]
     [SerializeField] float movespeed = 60f;
     [SerializeField] float jumpheight = 10f;
     [SerializeField] float sprintmultiplier = 2f;
 
-
-
     bool isGrounded = true;
-    int jumpamount = 1;
-
-
+    
     void Start()
     {
 
@@ -34,7 +26,6 @@ public class Moving : MonoBehaviour
         float speedz = Input.GetAxis("Vertical") * movespeed * Time.deltaTime;
 
         transform.Translate(speedx, 0, speedz);
-
 
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
@@ -51,7 +42,6 @@ public class Moving : MonoBehaviour
         {
             movespeed = movespeed / sprintmultiplier;
         }
-
 
     }
     void OnCollisionEnter(Collision collision)

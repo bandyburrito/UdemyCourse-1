@@ -13,7 +13,7 @@ public class Moving : MonoBehaviour
     [SerializeField] float sprintmultiplier = 2f;
 
     bool isGrounded = true;
-    
+
     void Start()
     {
 
@@ -51,6 +51,8 @@ public class Moving : MonoBehaviour
             isGrounded = true;
             Debug.Log("Grounded");
         }
+
+        
     }
     void OnCollisionExit(Collision collision)
     {
@@ -60,9 +62,10 @@ public class Moving : MonoBehaviour
             Debug.Log("Not Grounded");
         }
 
-    }
 
+    }
+}
    
 
      
-}
+

@@ -1,3 +1,4 @@
+using System.Globalization;
 using UnityEngine;
 
 
@@ -14,9 +15,11 @@ public class Moving : MonoBehaviour
 
     bool isGrounded = true;
 
+    
+
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -32,8 +35,6 @@ public class Moving : MonoBehaviour
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpheight, ForceMode.Impulse);
         }
-
-
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             movespeed = movespeed * sprintmultiplier;
@@ -42,8 +43,8 @@ public class Moving : MonoBehaviour
         {
             movespeed = movespeed / sprintmultiplier;
         }
-
     }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -51,9 +52,16 @@ public class Moving : MonoBehaviour
             isGrounded = true;
             Debug.Log("Grounded");
         }
-
-        
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("DeathLine"))
+        {
+            transform.position = new Vector3(1,1,-16);
+        }
+    }
+
     void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -62,9 +70,14 @@ public class Moving : MonoBehaviour
             Debug.Log("Not Grounded");
         }
 
-
     }
 }
+    
+    
+   
+
+  
+
    
 
      

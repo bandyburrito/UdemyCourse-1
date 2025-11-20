@@ -17,11 +17,7 @@ public class DeathRespawn : MonoBehaviour
 
 
     }
-    
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Passed Death Barrier");
-    }
-    
+
+   
 
 }
